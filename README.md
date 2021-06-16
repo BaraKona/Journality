@@ -1,4 +1,4 @@
-# WindowsFormsApp1
+# Journality
 Journality productivity app (in progress)
 
 ![](screenshot.png)
