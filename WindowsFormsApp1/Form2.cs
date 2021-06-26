@@ -17,6 +17,7 @@ namespace WindowsFormsApp1
         private int totalSeconds;
         public floating1()
         {
+            //comment test
             InitializeComponent();
             button1.Text = "\u2713";
         }
