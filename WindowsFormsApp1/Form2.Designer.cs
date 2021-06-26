@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.button2 = new System.Windows.Forms.Button();
+            this.pauseButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
+            this.StartButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -44,20 +44,20 @@
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button2
+            // pauseButton
             // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button2.Location = new System.Drawing.Point(214, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(38, 29);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "II";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.pauseButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pauseButton.FlatAppearance.BorderSize = 0;
+            this.pauseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pauseButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pauseButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.pauseButton.Location = new System.Drawing.Point(214, 0);
+            this.pauseButton.Name = "pauseButton";
+            this.pauseButton.Size = new System.Drawing.Size(38, 29);
+            this.pauseButton.TabIndex = 2;
+            this.pauseButton.Text = "II";
+            this.pauseButton.UseVisualStyleBackColor = true;
+            this.pauseButton.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -77,10 +77,10 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.StartButton);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.pauseButton);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -92,20 +92,20 @@
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
             // 
-            // button4
+            // StartButton
             // 
-            this.button4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button4.Location = new System.Drawing.Point(167, 0);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(47, 29);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "Start";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.StartButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.StartButton.FlatAppearance.BorderSize = 0;
+            this.StartButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.StartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StartButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.StartButton.Location = new System.Drawing.Point(167, 0);
+            this.StartButton.Name = "StartButton";
+            this.StartButton.Size = new System.Drawing.Size(47, 29);
+            this.StartButton.TabIndex = 7;
+            this.StartButton.Text = "Start";
+            this.StartButton.UseVisualStyleBackColor = true;
+            this.StartButton.Click += new System.EventHandler(this.button4_Click);
             // 
             // label3
             // 
@@ -189,7 +189,7 @@
             this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Font = new System.Drawing.Font("MS UI Gothic", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.textBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.textBox1.Location = new System.Drawing.Point(0, 54);
             this.textBox1.MaxLength = 15;
             this.textBox1.Multiline = true;
@@ -228,7 +228,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button pauseButton;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Timer timer1;
@@ -237,7 +237,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button StartButton;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox textBox1;
     }

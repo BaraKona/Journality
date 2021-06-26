@@ -15,6 +15,7 @@ namespace WindowsFormsApp1
         private bool _dragging = false;
         private Point _start_point = new Point(0, 0);
         private int totalSeconds;
+        private int x = 0;
         public floating1()
         {
             //comment test
@@ -26,11 +27,11 @@ namespace WindowsFormsApp1
         {
             
         }
-
+        //combobox =  drop down box
         private void button2_Click(object sender, EventArgs e)
         {
-            this.button2.Enabled = false;
-            this.button4.Enabled = true;
+            this.pauseButton.Enabled = false;
+            this.StartButton.Enabled = true;
             this.comboBox1.Show();
             this.comboBox2.Show();
 
@@ -82,7 +83,7 @@ namespace WindowsFormsApp1
         {
             textBox1.Text = Journality.SetValueForText1;
             //disables button before timer start, so you cant click it until you have started
-            this.button2.Enabled = false;
+            this.pauseButton.Enabled = false;
             for(int i = 10; i<= 60; i++)
             {
                 this.comboBox1.Items.Add(i.ToString());
@@ -104,21 +105,38 @@ namespace WindowsFormsApp1
 
         private void button4_Click(object sender, EventArgs e)
         {
-            
+            if (x == 0) { 
             this.comboBox1.Hide();
             this.comboBox2.Hide();
             this.label1.Hide();
             this.label2.Hide();
             //When pressed, button 4(this button) will be greyed out and unabe to be pressed again
             //button 2 the pause, will be enabled.
-            this.button4.Enabled = false;
-            this.button2.Enabled = true;
+            this.StartButton.Enabled = false;
+            this.pauseButton.Enabled = true;
 
             int minutes = int.Parse(this.comboBox1.SelectedItem.ToString());
             int seconds = int.Parse(this.comboBox2.SelectedItem.ToString());
-            totalSeconds = (minutes * 60) + seconds;
-            this.timer1.Enabled = true;
+                totalSeconds = (minutes * 60) + seconds;
+                this.timer1.Enabled = true;
+                int timertime = totalSeconds;
+                ++x;
+            }
+            if (x >= 1)
+            {
+                this.comboBox1.Hide();
+                this.comboBox2.Hide();
+                this.label1.Hide();
+                this.label2.Hide();
+                this.StartButton.Enabled = false;
+                this.pauseButton.Enabled = true;
 
+                int minutes = int.Parse(this.comboBox1.SelectedItem.ToString());
+                int seconds = int.Parse(this.comboBox2.SelectedItem.ToString());
+
+                this.timer1.Enabled = true;
+            }
+            
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
