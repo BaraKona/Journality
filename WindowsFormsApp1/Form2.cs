@@ -12,6 +12,10 @@ namespace WindowsFormsApp1
 {
     public partial class floating1 : Form
     {
+        //Notes how many times task have been completed.
+        public static int timerEventAbruptEnd = 0;
+        public static Boolean bbutton = false;
+        public static int timerEventEnd = 0;
         private bool _dragging = false;
         private Point _start_point = new Point(0, 0);
         private int totalSeconds;
@@ -23,17 +27,23 @@ namespace WindowsFormsApp1
             button1.Text = "\u2713";
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        public void button1_Click(object sender, EventArgs e)
         {
-            
+            if (totalSeconds <= 1)
+            {
+                timerEventAbruptEnd = 1;
+                Journality.EnableButtons(timerEventAbruptEnd);
+                Close();
+            }
         }
         //combobox =  drop down box
         private void button2_Click(object sender, EventArgs e)
         {
             this.pauseButton.Enabled = false;
             this.StartButton.Enabled = true;
-            this.comboBox1.Show();
-            this.comboBox2.Show();
+            //this.comboBox1.Show();
+            //this.comboBox2.Show();
 
             timer1.Stop();
         }
@@ -51,12 +61,16 @@ namespace WindowsFormsApp1
 
         private void button3_Click(object sender, EventArgs e)
         {
+            //(this.Owner as Journality).button10.Enabled = true;
+            bbutton = true;
+            Console.WriteLine(bbutton);
             Close();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             //Timer
+            //Code here for things to do with timer ( time remaining )
             if(totalSeconds > 0)
             {
                 totalSeconds--;
@@ -69,6 +83,9 @@ namespace WindowsFormsApp1
             {
                 this.timer1.Stop();
                 MessageBox.Show("Time is up! Take a break, stretch you legs");
+                this.button1.Enabled = true;
+                //Increments the timerEvent whenever task has been completed.
+                timerEventEnd += 1;
             }
             
             
@@ -105,6 +122,8 @@ namespace WindowsFormsApp1
 
         private void button4_Click(object sender, EventArgs e)
         {
+            this.button1.Enabled = false;
+            this.button3.Enabled = false;
             if (x == 0) { 
             this.comboBox1.Hide();
             this.comboBox2.Hide();
@@ -114,7 +133,8 @@ namespace WindowsFormsApp1
             //button 2 the pause, will be enabled.
             this.StartButton.Enabled = false;
             this.pauseButton.Enabled = true;
-
+            
+            //sets timer to value selected
             int minutes = int.Parse(this.comboBox1.SelectedItem.ToString());
             int seconds = int.Parse(this.comboBox2.SelectedItem.ToString());
                 totalSeconds = (minutes * 60) + seconds;
@@ -172,6 +192,16 @@ namespace WindowsFormsApp1
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void floating1_load(object sender, EventArgs e)
+        {
+            timerEventAbruptEnd = 0;
+        }
+        private void floating1_close(object sender, EventArgs e)
+        {
+            timerEventAbruptEnd = 1;  
+            Journality.EnableButtons(timerEventAbruptEnd);
         }
     }
 }
