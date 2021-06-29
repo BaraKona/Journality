@@ -15,6 +15,7 @@ namespace WindowsFormsApp1
         //Notes how many times task have been completed.
         public static int timerEventAbruptEnd = 0;
         public static Boolean bbutton = false;
+        public static Boolean bbutton1;
         public static int timerEventEnd = 0;
         private bool _dragging = false;
         private Point _start_point = new Point(0, 0);
@@ -25,6 +26,7 @@ namespace WindowsFormsApp1
             //comment test
             InitializeComponent();
             button1.Text = "\u2713";
+
         }
 
 
@@ -62,8 +64,14 @@ namespace WindowsFormsApp1
         private void button3_Click(object sender, EventArgs e)
         {
             //(this.Owner as Journality).button10.Enabled = true;
+            bbutton1 = Journality.exitbutton;
             bbutton = true;
-            Console.WriteLine(bbutton);
+
+            if (bbutton1 == true)
+            {
+                bbutton = false;
+            }
+            Console.WriteLine("bbutton has been pressed and is now" + bbutton);
             Close();
         }
 
